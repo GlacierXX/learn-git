@@ -44,3 +44,11 @@ git log
 * 将本地库中master分支推送到远程库中
 * git push -u origin master
 * -u 参数第一次推送的时候使用，将本地的master分支和远程仓库中的master分支关联起来，之后可以直接git push origin master推送
+13. 克隆远程仓库到本地
+git clone https://github.com/GlacierXX/learn-git.git
+14. 创建切换分支
+* 创建并切换到dev分支 git checkout -b dev
+* 相当于：
+* git branch dev
+* git checkout dev
+* 查看当前分支 git branch，当前分支前会标有*号
