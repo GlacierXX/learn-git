@@ -52,3 +52,5 @@ git clone https://github.com/GlacierXX/learn-git.git
 * git branch dev
 * git checkout dev
 * 查看当前分支 git branch，当前分支前会标有*号
+* 合并dev分支到master，首先切换分支到master，然后git merge dev
+* 合并后可以删除dev分支，git branch -d dev
