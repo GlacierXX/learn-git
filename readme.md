@@ -80,3 +80,10 @@ dev：不稳定分支，用来开发，将自己的修改合并到dev分支
   2. 远程分支比本地新则需要拉取更新并合并，git pull
   3. 如果合并有冲突则解决冲突后提交
   4. git pull失败，则本地分支和远程分支需要建立关系，git branch --set-upstream-top branchName origin/branchName
+20. git rebase 将本地未push的分叉整理成一条直线，使查看历史变的简洁
+21. 标签管理
+* git tag name commit_id 可以为某次commit打标签，如不写commit则给最后一次commit打标签
+* git tag -a name -m desc commit_id -m参数可以指定此次tag的描述文字
+* git tag 查看标签
+* git show name 查看某个tag的详情
+* tag只与commit有关，如多个分支都有此次提交则都会被打上tag
