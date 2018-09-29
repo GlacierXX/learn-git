@@ -61,4 +61,22 @@ git clone https://github.com/GlacierXX/learn-git.git
 master：稳定分支，用来发布新版本，不用来开发
 dev：不稳定分支，用来开发，将自己的修改合并到dev分支
 17. BUG分支
-git stash 存储当前工作现场
+* git stash 存储当前dev分支工作现场
+* master上创建临时修复分支，修复后合并，并删除临时分支
+* git stash list 查看保存列表
+* git stash apply [stash@{0}] 恢复保存内容
+* 需要用git stash drop来删除记录
+* git stash pop恢复的同时也会删除记录
+18. feature分支
+* 新功能的开发需要新建feature分支
+* 分支合并之前需要删除 git branch -D feature -D表示强制删除
+19. 多人协作
+* git remote -v 查看远程库信息，不是所有分支都需要推送到远程仓库
+* master：主分支需要与远程同步
+* dev：开发分支，团队成员都需要基于此分支开发，应该同步
+* bug：bug分支只用于本地修复，无需推送，除非需要
+* feature：是否推送取决于是否和其他人合作完成
+* 1. git push origin dev 推送自己的修改
+  2. 远程分支比本地新则需要拉取更新并合并，git pull
+  3. 如果合并有冲突则解决冲突后提交
+  4. git pull失败，则本地分支和远程分支需要建立关系，git branch --set-upstream-top branchName origin/branchName
