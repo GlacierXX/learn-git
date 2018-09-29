@@ -82,8 +82,12 @@ dev：不稳定分支，用来开发，将自己的修改合并到dev分支
   4. git pull失败，则本地分支和远程分支需要建立关系，git branch --set-upstream-top branchName origin/branchName
 20. git rebase 将本地未push的分叉整理成一条直线，使查看历史变的简洁
 21. 标签管理
-* git tag name commit_id 可以为某次commit打标签，如不写commit则给最后一次commit打标签
+* git tag name commit_id 可以为某次commit打标签，如不指定commit_id，则为HEAD
 * git tag -a name -m desc commit_id -m参数可以指定此次tag的描述文字
 * git tag 查看标签
 * git show name 查看某个tag的详情
 * tag只与commit有关，如多个分支都有此次提交则都会被打上tag
+* git tag -d name 删除标签
+* git push origin name 推送tag到远程
+* git push origin --tags 一次性推送全部尚未推送到远程的标签
+* 删除远程tag，先要从本地删除，然后git push origin :refs/tags/name
