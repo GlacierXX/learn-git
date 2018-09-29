@@ -55,3 +55,10 @@ git clone https://github.com/GlacierXX/learn-git.git
 * 合并dev分支到master，首先切换分支到master，然后git merge dev
 * 合并后可以删除dev分支，git branch -d dev
 15. 解决冲突
+* git merge 合并分支时，如无法自动合并，需要解决冲突之后，进行提交
+* git log --graph 可以查看分支合并图
+16. 分支策略
+master：稳定分支，用来发布新版本，不用来开发
+dev：不稳定分支，用来开发，将自己的修改合并到dev分支
+17. BUG分支
+git stash 存储当前工作现场
