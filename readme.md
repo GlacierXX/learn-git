@@ -12,29 +12,44 @@ Xcode集成Git
 
 > 命令
 1. 创建仓库
+```shell
 git init
+```
 2. 添加文件到仓库
+```shell
 git add xxx xxx 添加一个或者多个文件
 git add . 添加所有修改和新增(1.x版本不会包括删除文件，2.x版本会包括)
 git add -u/--update 更新已经被add过的文件，tracked file
 git add -A/--all .和update的组合
+```
 3. 提交文件到仓库
+```shell
 git commit -m 'add readme.md'
+```
 4. 查看仓库目前状态
+```shell
 git status
+```
 5. 查看修改内容
+```shell
 git diff readme.md
+```
 6. 查看提交记录
+```shell
 git log
+```
 7. 版本回退
 > HEAD：当前分支最近的一次提交
 > Index： staging area，暂存区，即将要被commit的文件集合
 > Working copy：正在工作的文件集，本地文件
 
 reset三个等级：
-reset --soft：恢复HEAD指针，Index与Working copy不变
-reset --mixed(default)：恢复HEAD指针，Index丢失，Working copy不变
-reset --hard：恢复HEAD指针，Index与Working copy修改全部丢失
+
+```shell
+git reset --soft：恢复HEAD指针，Index与Working copy不变
+git reset --mixed(default)：恢复HEAD指针，Index丢失，Working copy不变
+fit reset --hard：恢复HEAD指针，Index与Working copy修改全部丢失
+```
 
 * HEAD：当前版本
 * git reset HEAD^ 回退到上个版本
@@ -49,6 +64,7 @@ reset --hard：恢复HEAD指针，Index与Working copy修改全部丢失
 * git add将工作区中的修改放在暂存区
 * git commit将暂存区中的修改提交到分支
 * git跟踪并管理的是修改，并不是文件，所以没有使用git add将修改保存在暂存区中的修改，不会被git commit提交到分支
+![add-commit-flow](https://github.com/GlacierXX/learn-git/blob/dev/images/learn-01.jpeg)
 9. 撤销更改
 * git checkout -- readme.md
 * 修改未添加到暂存区，恢复到上次commit之后
