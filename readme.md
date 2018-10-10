@@ -44,7 +44,7 @@ reset --hard：恢复HEAD指针，Index与Working copy修改全部丢失
 * git reflog 查看命令历史，找到每次commit的ID，可以指定reset到某个版本
 * git reset commit_id
 8. 工作区与暂存区
-* 工作区：本地git项目目录
+* 工作区：本地git项目目录， Working copy
 * 暂存区：工作区中的.git隐藏目录版本库，其中包括stage称作暂存区，还有git自动创建的第一个分支master，以及指向master的指针HEAD
 * git add将工作区中的修改放在暂存区
 * git commit将暂存区中的修改提交到分支
