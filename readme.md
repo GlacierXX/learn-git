@@ -1,11 +1,23 @@
+#### 安装
+> mac
+
+homebrew
+```shell
+brew install git
+```
+
+Xcode集成Git
+设置->download->Command Line Tools install
+> [windows](https://git-scm.com/downloads)
+
+> 命令
 1. 创建仓库
 git init
 2. 添加文件到仓库
 git add xxx xxx 添加一个或者多个文件
-git add . 添加所有修改和新增
-git add -u/--update 更新已经被add过的文件
-git add -A/--all 
-可以多次添加，一次可以添加多个文件
+git add . 添加所有修改和新增(1.x版本不会包括删除文件，2.x版本会包括)
+git add -u/--update 更新已经被add过的文件，tracked file
+git add -A/--all .和update的组合
 3. 提交文件到仓库
 git commit -m 'add readme.md'
 4. 查看仓库目前状态
@@ -15,11 +27,20 @@ git diff readme.md
 6. 查看提交记录
 git log
 7. 版本回退
+> HEAD：当前分支最近的一次提交
+> Index： staging area，暂存区，即将要被commit的文件集合
+> Working copy：正在工作的文件集，本地文件
+
+reset三个等级：
+reset --soft：恢复HEAD指针，Index与Working copy不变
+reset --mixed(default)：恢复HEAD指针，Index丢失，Working copy不变
+reset --hard：恢复HEAD指针，Index与Working copy修改全部丢失
+
 * HEAD：当前版本
+* git reset --hard HEAD^ 回退到上个版本
 * HEAD^：上个版本
 * HEAD^^：上上个版本
 * HEAD~100：上100个版本
-* git reset --hard HEAD^ 回退到上个版本
 * git reflog 查看命令历史，找到每次commit的ID，可以指定reset到某个版本
 * git reset --hard commit_id
 8. 工作区与暂存区
