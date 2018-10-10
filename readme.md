@@ -1,7 +1,10 @@
 1. 创建仓库
 git init
 2. 添加文件到仓库
-git add readme.md
+git add xxx xxx 添加一个或者多个文件
+git add . 添加所有修改和新增的文件
+git add -u/--update 更新已经被add过的文件
+git add -A/--all 
 可以多次添加，一次可以添加多个文件
 3. 提交文件到仓库
 git commit -m 'add readme.md'
