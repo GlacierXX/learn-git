@@ -96,18 +96,34 @@ git remote add origin https://github.com/GlacierXX/learn-git.git
 ```shell
 git push -u origin master
 ```
-* -u 参数第一次推送的时候使用，将本地的master分支和远程仓库中的master分支关联起来，之后可以直接git push推送
-
+* -u 参数第一次推送的时候使用，将本地仓库与远程origin仓库关联起来，之后可以直接git push推送
 13. 克隆远程仓库到本地
+```shell
 git clone https://github.com/GlacierXX/learn-git.git
+```
 14. 创建切换分支
-* 创建并切换到dev分支 git checkout -b dev
+* 创建并切换到dev分支
+```shell
+git checkout -b dev
+```
 * 相当于：
-* git branch dev
-* git checkout dev
-* 查看当前分支 git branch，当前分支前会标有*号
+```shell
+git branch dev
+git checkout dev
+```
+* 查看当前分支，当前分支前会标有*号
+```shell
+git branch
+```
 * 合并dev分支到master，首先切换分支到master，然后git merge dev
-* 合并后可以删除dev分支，git branch -d dev
+```shell
+git checkout master
+git merge dev
+```
+* 合并后可以删除分支
+```shell
+git branch -d xxx
+```
 15. 解决冲突
 * git merge 合并分支时，如无法自动合并，需要解决冲突之后，进行提交
 * git log --graph 可以查看分支合并图
@@ -115,17 +131,29 @@ git clone https://github.com/GlacierXX/learn-git.git
 master：稳定分支，用来发布新版本，不用来开发
 dev：不稳定分支，用来开发，将自己的修改合并到dev分支
 17. BUG分支
-* git stash 存储当前dev分支工作现场
+* 当遇到紧急修复任务，需要存储当前dev分支工作现场
+```shell
+git stash
+```
 * master上创建临时修复分支，修复后合并，并删除临时分支
-* git stash list 查看保存列表
-* git stash apply [stash@{0}] 恢复保存内容
-* 需要用git stash drop来删除记录
-* git stash pop恢复的同时也会删除记录
+```shell
+git stash list 查看保存列表
+git stash apply [stash@{0}] 恢复保存内容
+git stash drop 删除记录
+git stash pop 恢复的同时也会删除记录
+```
 18. feature分支
 * 新功能的开发需要新建feature分支
-* 分支合并之前需要删除 git branch -D feature -D表示强制删除
+```shell
+git branch -D feature -D表示强制删除本地分支
+git push origin :feature 删除远程分支
+```
+* 新功能分支合并之后可以删除
 19. 多人协作
-* git remote -v 查看远程库信息，不是所有分支都需要推送到远程仓库
+* 查看远程库信息，不是所有分支都需要推送到远程仓库
+```shell
+git remote -v
+```
 * master：主分支需要与远程同步
 * dev：开发分支，团队成员都需要基于此分支开发，应该同步
 * bug：bug分支只用于本地修复，无需推送，除非需要
@@ -133,7 +161,7 @@ dev：不稳定分支，用来开发，将自己的修改合并到dev分支
 * 1. git push origin dev 推送自己的修改
   2. 远程分支比本地新则需要拉取更新并合并，git pull
   3. 如果合并有冲突则解决冲突后提交
-  4. git pull失败，则本地分支和远程分支需要建立关系，git branch --set-upstream-top branchName origin/branchName
+  4. git pull失败，则本地分支和远程分支需要建立关系，git branch --set-upstream-top xxx origin/xxx
 20. git rebase 将本地未push的分叉整理成一条直线，使查看历史变的简洁
 21. 标签管理
 * git tag name commit_id 可以为某次commit打标签，如不指定commit_id，则为HEAD
