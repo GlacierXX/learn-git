@@ -1,11 +1,21 @@
+#### 安装
+> mac
+homebrew
+```shell
+brew install git
+```
+
+Xcode集成Git
+设置->download->Command Line Tools install
+> [windows](https://git-scm.com/downloads)
+
 1. 创建仓库
 git init
 2. 添加文件到仓库
 git add xxx xxx 添加一个或者多个文件
-git add . 添加所有修改和新增
-git add -u/--update 更新已经被add过的文件
-git add -A/--all 
-可以多次添加，一次可以添加多个文件
+git add . 添加所有修改和新增(1.x版本不会包括删除文件，2.x版本会包括)
+git add -u/--update 更新已经被add过的文件，tracked file
+git add -A/--all .和update的组合
 3. 提交文件到仓库
 git commit -m 'add readme.md'
 4. 查看仓库目前状态
