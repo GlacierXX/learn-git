@@ -39,9 +39,9 @@ git diff readme.md
 git log
 ```
 7. 版本回退
-> HEAD：当前分支最近的一次提交
-> Index： staging area，暂存区，即将要被commit的文件集合
-> Working copy：正在工作的文件集，本地文件
+* HEAD：当前分支最近的一次提交
+* Index： staging area，暂存区，即将要被commit的文件集合
+* Working copy：正在工作的文件集，本地文件
 
 reset三个等级：
 
@@ -64,26 +64,39 @@ fit reset --hard：恢复HEAD指针，Index与Working copy修改全部丢失
 * git add将工作区中的修改放在暂存区
 * git commit将暂存区中的修改提交到分支
 * git跟踪并管理的是修改，并不是文件，所以没有使用git add将修改保存在暂存区中的修改，不会被git commit提交到分支
+
 ![add-commit-flow](https://github.com/GlacierXX/learn-git/blob/dev/images/learn-01.jpeg)
 9. 撤销更改
-* git checkout -- readme.md
+```shell
+git checkout -- readme.md
+```
 * 修改未添加到暂存区，恢复到上次commit之后
 * 修改已经被添加到缓存区，恢复到上次add之后
-* git reset HEAD readme.md
+``` shell
+git reset HEAD readme.md
+```
 * 将添加到暂存区未commit的修改撤销
 10. 删除文件
-* git rm test.txt
+```shell
+git rm test.txt
+```
 * 误删的文件可以使用reset或者checkout恢复，但是会丢失最后一次更改
 11. 创建SSH Key
-* ssh-keygen -t rsa -C "youremail@example.com"
+```shell
+ssh-keygen -t rsa -C "youremail@example.com"
+```
 * id_rsa 私钥
 * id_rsa.pub 公钥
 12. 关联远程仓库
-* git remote add origin https://github.com/GlacierXX/learn-git.git
+```shell
+git remote add origin https://github.com/GlacierXX/learn-git.git
+```
 * origin是远程库的名字，也可以起别的名字
 * 将本地库中master分支推送到远程库中
-* git push -u origin master
-* -u 参数第一次推送的时候使用，将本地的master分支和远程仓库中的master分支关联起来，之后可以直接git push origin master推送
+```shell
+git push -u origin master
+```
+* -u 参数第一次推送的时候使用，将本地的master分支和远程仓库中的master分支关联起来，之后可以直接git push推送
 13. 克隆远程仓库到本地
 git clone https://github.com/GlacierXX/learn-git.git
 14. 创建切换分支
